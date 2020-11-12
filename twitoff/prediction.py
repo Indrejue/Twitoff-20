@@ -1,9 +1,10 @@
 """Prediction of user models"""
 
 import numpy as np
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 from .models import User
 from .twitter import vec_tweet
+
 
 def predict_user(user0_name, user1_name, hypo_tweet):
     """
@@ -20,7 +21,6 @@ def predict_user(user0_name, user1_name, hypo_tweet):
         [np.zeros(len(user0.tweets)), np.ones(len(user1.tweets))])
     hypo_tweet = vec_tweet(hypo_tweet)
 
-    rf_reg = RandomForestClassifier().fit(vects, labels)
+    gb_reg = GradientBoostingClassifier().fit(vects, labels)
 
-    return rf_reg.predict(hypo_tweet.reshape(1, -1))
-    
+    return gb_reg.predict(hypo_tweet.reshape(1, -1))

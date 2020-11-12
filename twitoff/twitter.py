@@ -26,18 +26,16 @@ def add_user(username):
         DB.session.add(db_user)
         tweets = t_user.timeline(
             count=500, exclude_replies=True, include_rts=False,
-            tweet_mode="extended"
+            tweet_mode="extended", since_id=db_user.new_t_id
         )
 
         if tweets:
             db_user.new_t_id = tweets[0].id
 
         for tweet in tweets:
-            if Tweet.query.get(tweet.id):
-                continue
-            veced_tweet = vec_tweet(tweet.full_text)
+            v_tweet = vec_tweet(tweet.full_text)
             db_tweet = Tweet(id=tweet.id, text=tweet.full_text,
-                             vect=veced_tweet)
+                             vect=v_tweet)
             db_user.tweets.append(db_tweet)
             DB.session.add(db_tweet)
 

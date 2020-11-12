@@ -10,14 +10,14 @@ class User(DB.Model):
     """Twitter User Table that will correspond to tweets - SQLAlchemy syntax"""
     id = DB.Column(DB.BigInteger, primary_key=True)  # id column (primary key)
     name = DB.Column(DB.String, nullable=False)  # name column
-    new_t_id =DB.Column(DB.BigInteger)
+    new_t_id = DB.Column(DB.BigInteger)
 
     def __repr__(self):
         return "<User: {}>".format(self.name)
 
 
 class Tweet(DB.Model):
-    """Tweet text data - associated with Users Table"""
+    """Tweet text data being pulled from twitter."""
     id = DB.Column(DB.BigInteger, primary_key=True)  # id column (primary key)
     text = DB.Column(DB.Unicode(300))
     vect = DB.Column(DB.PickleType, nullable=False)
