@@ -16,6 +16,8 @@ flask-sqlalchemy = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
 tweepy = "*"
+spacy = "*"
+scikit-learn = "*"
 
 [dev-packages]
 twine = "*"
