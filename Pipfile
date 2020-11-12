@@ -15,6 +15,7 @@ jinja2 = "*"
 flask-sqlalchemy = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
+tweepy = "*"
 
 [dev-packages]
 twine = "*"
