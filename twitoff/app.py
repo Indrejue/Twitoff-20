@@ -18,8 +18,8 @@ def create_app():
 
     @app.route('/')
     def root():
-        DB.drop_all()
-        DB.create_all()
+        # DB.drop_all()
+        # DB.create_all()
         # renders base.html template and passes down title and users
         return render_template('base.html',
                                title="Home",
